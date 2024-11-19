@@ -29,11 +29,11 @@ app.set("view engine", "ejs");
 
 app.post("/create-item", (req,res) => {
    
-    });
+   });
 
-    app.get("/author", (req,res) => {
+app.get("/author", (req,res) => {
       res.render("author", {user: user });
-    });
+   });
     app.get('/', function (req, res) {
         res.render("Harid")
     }); 
@@ -41,6 +41,5 @@ app.post("/create-item", (req,res) => {
     const server = http.createServer(app);
     let PORT = 3000;
     server.listen(PORT, function (){
-       console.log(`this server sucsesfully  running on port ${PORT}`) 
+       console.log(`This server successfully  running on port ${PORT}`) 
     });
-    
