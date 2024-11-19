@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJ2ZqFGwb10TTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4¡YMj70gZWKYbI706tWS"
+    crossorigin="anonymous"
+>
+</link>
+    <title>reja</title>
+</head>
+<body style="background-color: red; text-align: center;">
+    <div class="container">
+        <h1 style="background-color: aqua;">reja va Maqsadlar</h1>
+
+        <div class="container">
+            <h1 class="display-4 text-center py-1">
+                Reja va Maqsadlar
+            </h1>
+    
+            
+            <div class="jumbotron p-3 shadow-sm">
+                <form id="create-form" action="/create-item" method="POST">
+                    <div class="d-flex align-items-center mb-3">
+                        <input 
+                            type="text"
+                            id="create-field"
+                            name="item"
+                            autofocus
+                            autocomplete="off"
+                            class="form-control mr-3"
+                            style="flex: 1"
+                        >
+                        <button class="btn btn-primary" style="border-radius: 10px">
+                            Yangi Harid Qurish
+                        </button>
+                    </div>
+                </form>
+                <button type="button" class="btn btn-danger">
+                    Hammasini o'chirish
+                </button>
+            </div>
+    
+        </div>
+    </div>
+    
+</body>
+</html>
