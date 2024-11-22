@@ -1,6 +1,6 @@
 console.log("Web serverni boshlash");
 const express = require("express");
-const app = express(); /// expresnijng app objectini yuboradi express serverini yuboradi
+const app = express(); /// expresning app objectini yuboradi express serverini yuboradi
 // const fs = require("fs");
 // const { start } = require("repl");
 // app.use(express.static('public'));
@@ -29,9 +29,9 @@ app.set("view engine", "ejs");
 
 // 4 routing qismi   
 app.post("/create-item", (req,res) => {
-   console.log(req. body);
-   const new_eja = req.body.reja;
-   db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
+   console.log(req.body);
+   const reja = req.body.reja;
+   db.collection("plans").insertOne({reja: reja}, (err, data) => {
       if(err) {
          console.log(err);
          req.end("Something went wrong");
@@ -41,9 +41,10 @@ app.post("/create-item", (req,res) => {
    });
 });
 
-// app.get("/author", (req,res) => {
-//       res.render("author", {user: user });
-// });
+app.get("/author", (req,res) => { 
+   res.render("author", {user: user });
+});
+
 app.get('/', function (req, res) {
    console.log('user entered /');
    db.collection("plans").find().toArray((err, data) => {
