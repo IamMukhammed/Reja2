@@ -151,17 +151,33 @@ console.log("Passed here 1"); */
 
 
 // TASK - A
-function number(letter, word, callback) {
-    let num = 0;                                 
-    for (a of word) {   
-        if (a === letter) {   
-            num = num + 1;             
+// function number(letter, word, callback) {
+//     let num = 0;                                 
+//     for (a of word) {   
+//         if (a === letter) {   
+//             num = num + 1;             
+//         }
+//     }
+
+//     callback(num);              
+// }
+
+// number("e", "engineer", (result) => {  
+//     console.log("result:", result);
+// });
+
+
+// TASK - B
+
+function countDigits(s) {
+    let count = 0;
+    for (let char of s) {
+        if (!isNaN(char) && char.trim() !== '') { // faqat raqamlarni hisoblash
+            count++;
         }
     }
-
-    callback(num);              
+    return count;
 }
 
-number("e", "engineer", (result) => {  
-    console.log("result:", result);
-});
+const result = countDigits("ad2a54y79wet0sfgb9");
+console.log(result); // 7 raqami chiqadi
