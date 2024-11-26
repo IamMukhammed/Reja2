@@ -28,25 +28,27 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 routing qismi   
-app.post("/create-item", (req,res) => {
-   console.log(req.body);
+app.post("/create-item", (req, res) => {
+   console.log("user entered / create-item");
    const reja = req.body.reja;
    db.collection("plans").insertOne({reja: reja}, (err, data) => {
-      if(err) {
-         console.log(err);
-         req.end("Something went wrong");
-      } else {
-         res.end("Successfully added");
-      }
+      console.log(data.ops);
+      res.json(data.ops[0]);
+      // if(err) {
+      //    console.log(err);
+      //    req.end("Something went wrong");
+      // } else {
+      //    res.end("Successfully added");
+      // }
    });
 });
 
-app.get("/author", (req,res) => { 
-   res.render("author", {user: user });
-});
+// app.get("/author", (req,res) => { 
+//    res.render("author", {user: user });
+// });
 
 app.get('/', function (req, res) {
-   console.log('user entered /');
+   console.log("user entered / create-item");
    db.collection("plans").find().toArray((err, data) => {
       if(err) {
          console.log(err);
