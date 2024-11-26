@@ -169,15 +169,86 @@ console.log("Passed here 1"); */
 
 // TASK - B
 
-function countDigits(s) {
-    let count = 0;
-    for (let char of s) {
-        if (!isNaN(char) && char.trim() !== '') { // faqat raqamlarni hisoblash
-            count++;
-        }
-    }
-    return count;
-}
+// function countDigits(s) {
+//     let count = 0;
+//     for (let char of s) {
+//         if (!isNaN(char) && char.trim() !== '') { // faqat raqamlarni hisoblash
+//             count++;
+//         }
+//     }
+//     return count;
+// }
 
-const result = countDigits("ad2a54y79wet0sfgb9");
-console.log(result); // 7 raqami chiqadi
+// const result = countDigits("ad2a54y79wet0sfgb9");
+// console.log(result); // 7 raqami chiqadi
+
+
+
+// TASK - C
+
+
+class Shop {
+    constructor(non, osh, fanta) {
+      this.products = {
+        non: non,
+        osh: osh,
+        fanta: fanta,
+      };
+      this.currentTime = "20:40"; // Boshlang'ich vaqti
+    }
+  
+    // Vaqtni qo'l bilan yangilash
+    updateTime(newTime) {
+      this.currentTime = newTime;
+    }
+  
+    // Qoldiq qismi
+    qoldiq() {
+      const productList = Object.entries(this.products)
+        .map(([product, count]) => `${count} ta ${product}`)
+        .join(', ');
+      const result = `Xozir ${this.currentTime} da ${productList} bor!`;
+      console.log(result);
+      return result;
+    }
+  
+    // Sotish qismi
+    sotish(product, amount) {
+      if (this.products[product] === undefined) {
+        console.log(`Mahsulot "${product}" mavjud emas!`);
+        return;
+      }
+      if (this.products[product] < amount) {
+        console.log(
+          `Xozir ${this.currentTime} da ${product} mahsuloti yetarli emas!`
+        );
+        return;
+      }
+      this.products[product] -= amount;
+      console.log(
+        `Xozir ${this.currentTime} da ${amount} ta ${product} sotildi!`
+      );
+    }
+  
+    // Qabul qilish qismi
+    qabul(product, amount) {
+      if (this.products[product] === undefined) {
+        console.log(`Yangi mahsulot "${product}" qo'shildi!`);
+        this.products[product] = 0;
+      }
+      this.products[product] += amount;
+      console.log(
+        `Xozir ${this.currentTime} da ${amount} ta ${product} qo'shildi!`
+      );
+    }
+  }
+  
+  // Call qismi
+  const shop = new Shop(4, 5, 2);
+  shop.qoldiq(); // Xozir 20:40 da 4 ta non, 5 ta osh va 2 ta fanta mavjud!
+  shop.sotish('non', 3); // Xozir 20:40 da 3 ta non sotildi!
+  shop.qabul('fanta', 4); // Xozir 20:40 da 4 ta fanta qo'shildi!
+  
+  // Vaqtni yangilash
+  shop.updateTime("20:50");
+  shop.qoldiq(); // Xozir 20:50 da 1 ta non, 5 ta osh va 6 ta fanta mavjud!
