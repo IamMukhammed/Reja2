@@ -257,10 +257,22 @@ console.log("Passed here 1"); */
 // TASK - D
 
 
-function checkContent(str1, str2) {
-  // Ikkala stringning harflar to'plamini taqqoslash
-  return new Set(str1).size === new Set([...str1, ...str2]).size && new Set(str2).size === new Set([...str1, ...str2]).size;
-}
+// function checkContent(str1, str2) {
+//   // Ikkala stringning harflar to'plamini taqqoslash
+//   return new Set(str1).size === new Set([...str1, ...str2]).size && new Set(str2).size === new Set([...str1, ...str2]).size;
+// }
 
-console.log(checkContent("mitgroup", "gmtiprou")); // true
-console.log(checkContent("hello", "world"));       // false
+// console.log(checkContent("mitgroup", "gmtiprou")); // true
+// console.log(checkContent("hello", "world"));       // false
+
+
+// TASK - E
+
+function getReverse(s) {
+    console.log("before return was:", "hello"); 
+    return s.split('').reverse().join('');
+}
+// Test
+console.log(getReverse("hello"));
+console.log("after return:", "olleh");
+
