@@ -1,13 +1,8 @@
-// TASK - F
+// TASK - G
 
-function findDoublers(s) {
-    for (let i = 0; i < s.length - 1; i++) {
-        if (s[i] === s[i + 1]) {
-            return true;
-        }
-    }
-    return false;
+function getHighestIndex(arr) {
+    let highest = Math.max(...arr);
+    return arr.indexOf(highest);
 }
 
-console.log(findDoublers("hello"));
-console.log(findDoublers("name"));
+console.log(getHighestIndex([5, 21, 12, 18, 8]));
